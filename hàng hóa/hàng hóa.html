@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh Sách Hàng Hóa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <h1>🛍️ Danh Sách Hàng Hóa</h1>
+    </div>
+  </header>
+
+  <main class="products-grid">
+    <div class="hh-box" data-name="Nikon D3100">
+      <div class="hh-box-name">Nikon D3100</div>
+      <img class="hh-box-image" src="product.png" alt="Nikon D3100" />
+      <img class="hh-box-icon" src="new-icon.png" alt="NEW" width="60" />
+
+      <div class="hh-bottom-bar">
+        <div class="hh-box-price">$99.99</div>
+        <div class="hh-box-actions">
+            <img src="Favourites.png" alt="Yêu thích" />
+            <img src="Letter.png" alt="Tin nhắn" />
+            <img src="Basket.png" alt="Giỏ hàng" />
+        </div>
+      </div>
+    </div>
+
+    <div class="hh-box" data-name="Nikon D3100 Kit">
+      <div class="hh-box-name">Nikon D3100 Kit</div>
+      <img class="hh-box-image" src="product.png" alt="Nikon D3100 Kit" />
+      <img class="hh-box-icon" src="new-icon.png" alt="NEW" width="60" />
+
+      <div class="hh-bottom-bar">
+        <div class="hh-box-price">$129.00</div>
+        <div class="hh-box-actions">
+            <img src="Favourites.png" alt="Yêu thích" />
+            <img src="Letter.png" alt="Tin nhắn" />
+            <img src="Basket.png" alt="Giỏ hàng" />
+        </div>
+      </div>
+    </div>
+
+    <div class="hh-box" data-name="Nikon D3100 Pro">
+      <div class="hh-box-name">Nikon D3100 Pro</div>
+      <img class="hh-box-image" src="product.png" alt="Nikon D3100 Pro" />
+
+      <div class="hh-bottom-bar">
+        <div class="hh-box-price">$159.50</div>
+        <div class="hh-box-actions">
+            <img src="Favourites.png" alt="Yêu thích" />
+            <img src="Letter.png" alt="Tin nhắn" />
+            <img src="Basket.png" alt="Giỏ hàng" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const toast = document.getElementById("toast");
+    let toastTimer = null;
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    document.querySelectorAll(".hh-box-actions a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const box = link.closest(".hh-box");
+        const prodName = box ? box.dataset.name : "Sản phẩm";
+        const action = link.dataset.action || "Thao tác";
+        showToast(`${action}: ${prodName}`);
+      });
+    });
+  </script>
+</body>
+</html>

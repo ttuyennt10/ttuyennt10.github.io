@@ -1,0 +1,7 @@
+/* HangHoa.css */
+.hh-box{width: 200px; height: 280px; border: 1px solid blue; text-align: center; position: relative; display: inline-block; margin: 30px 5px 5px 5px;}
+.hh-box-img{width: 80%;}
+.hh-box-new{right: 0; top: 0; position: absolute;}
+.hh-box-price{position: absolute; left: 5px; bottom: 5px; font-size: large; color: green; font-weight: bolder;}
+.hh-box-name{position: absolute; left: 0; top: -25px; font-size: large; color: blue; font-weight: bolder; background-color: beige; width: inherit;}
+.hh-box:hover{box-shadow: 0 0 7px red;}
